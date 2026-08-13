@@ -139,22 +139,48 @@
 </section>
 
 <div class="quick-search">
-  <form class="quick-search-inner" action="buy-car.html" method="get">
+  <form class="quick-search-inner" action="search-car.html" method="get">
     <div class="field">
       <label for="qs-make">Make</label>
-      <select id="qs-make" name="make"><option>Any Make</option><option>Maruti Suzuki</option><option>Hyundai</option><option>Tata</option><option>BAIC</option><option>Honda</option><option>Toyota</option></select>
+      <select id="qs-make" name="make">
+        <option value="">Any Make</option>
+        <option value="maruti">Maruti Suzuki</option>
+        <option value="hyundai">Hyundai</option>
+        <option value="tata">Tata</option>
+        <option value="baic">BAIC</option>
+        <option value="honda">Honda</option>
+        <option value="toyota">Toyota</option>
+      </select>
     </div>
     <div class="field">
       <label for="qs-budget">Budget</label>
-      <select id="qs-budget" name="budget"><option>Any Budget</option><option>Under ₹5 Lakh</option><option>₹5–10 Lakh</option><option>₹10–15 Lakh</option><option>₹15 Lakh+</option></select>
+      <select id="qs-budget" name="budget">
+        <option value="">Any Budget</option>
+        <option value="under_5">Under ₹5 Lakh</option>
+        <option value="5_10">₹5–10 Lakh</option>
+        <option value="10_15">₹10–15 Lakh</option>
+        <option value="15_plus">₹15 Lakh+</option>
+      </select>
     </div>
     <div class="field">
       <label for="qs-fuel">Fuel Type</label>
-      <select id="qs-fuel" name="fuel"><option>Any Fuel</option><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Electric</option></select>
+      <select id="qs-fuel" name="fuel">
+        <option value="">Any Fuel</option>
+        <option value="petrol">Petrol</option>
+        <option value="diesel">Diesel</option>
+        <option value="cng">CNG</option>
+        <option value="electric">Electric</option>
+      </select>
     </div>
     <div class="field">
       <label for="qs-year">Year</label>
-      <select id="qs-year" name="year"><option>Any Year</option><option>2023+</option><option>2020–2022</option><option>2017–2019</option><option>Below 2017</option></select>
+      <select id="qs-year" name="year">
+        <option value="">Any Year</option>
+        <option value="2023_plus">2023+</option>
+        <option value="2020_2022">2020–2022</option>
+        <option value="2017_2019">2017–2019</option>
+        <option value="below_2017">Below 2017</option>
+      </select>
     </div>
     <button class="btn btn-primary" type="submit">Search Cars</button>
   </form>
@@ -202,17 +228,17 @@
           <span class="car-badge">Certified</span>
           <span class="car-fuel-badge">Petrol</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+          <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+          <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+          <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+          <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+          <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+          <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+          <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+          <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+          <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+          <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+          </svg>
         </div>
         <div class="car-body">
           <h3>Maruti Suzuki Swift VXi</h3>
@@ -233,17 +259,17 @@
           <span class="car-badge">Certified</span>
           <span class="car-fuel-badge">Petrol</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+            <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+            <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+            <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+            <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+            <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+            <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+            <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+            <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+            </svg>
         </div>
         <div class="car-body">
           <h3>Honda City ZX</h3>
@@ -264,17 +290,17 @@
           <span class="car-badge">Just In</span>
           <span class="car-fuel-badge">Diesel</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+            <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+            <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+            <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+            <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+            <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+            <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+            <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+            <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+            </svg>
         </div>
         <div class="car-body">
           <h3>Hyundai Creta SX(O)</h3>
@@ -295,17 +321,17 @@
           <span class="car-badge">Certified</span>
           <span class="car-fuel-badge">Petrol</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+            <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+            <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+            <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+            <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+            <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+            <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+            <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+            <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+            </svg>
         </div>
         <div class="car-body">
           <h3>Maruti Suzuki Baleno Alpha</h3>
@@ -326,17 +352,17 @@
           <span class="car-badge">Certified</span>
           <span class="car-fuel-badge">Petrol</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+            <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+            <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+            <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+            <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+            <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+            <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+            <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+            <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+            </svg>
         </div>
         <div class="car-body">
           <h3>Hyundai Verna SX</h3>
@@ -357,17 +383,17 @@
           <span class="car-badge">Certified</span>
           <span class="car-fuel-badge">Petrol</span>
           <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
-<path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
-<path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
-<rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
-<circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="66" cy="94" r="6" fill="#E8834E"/>
-<circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
-<circle cx="172" cy="94" r="6" fill="#E8834E"/>
-<rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
-<rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
-</svg>
+            <ellipse cx="120" cy="98" rx="100" ry="8" fill="#0B1526" opacity=".4"/>
+            <path d="M28 78 L42 48 Q52 34 78 34 L150 34 Q172 34 184 50 L204 78 Z" fill="#233B69" stroke="#E8834E" stroke-width="2"/>
+            <path d="M60 46 L78 40 L136 40 L156 46 Z" fill="#182C4E"/>
+            <rect x="20" y="76" width="196" height="16" rx="6" fill="#101E38"/>
+            <circle cx="66" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="66" cy="94" r="6" fill="#E8834E"/>
+            <circle cx="172" cy="94" r="16" fill="#0B1526" stroke="#E8834E" stroke-width="2"/>
+            <circle cx="172" cy="94" r="6" fill="#E8834E"/>
+            <rect x="30" y="70" width="14" height="6" rx="2" fill="#E8834E"/>
+            <rect x="196" y="70" width="14" height="6" rx="2" fill="#F0A671"/>
+            </svg>
         </div>
         <div class="car-body">
           <h3>Tata Nexon XZ+</h3>
