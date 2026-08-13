@@ -1,0 +1,1160 @@
+/* ===== Hero Carousel ===== */
+.hero{position:relative;overflow:hidden;background:var(--navy-950);}
+.hero-viewport{position:relative;height:min(78vh,640px);min-height:460px;overflow:hidden;}
+.hero-track{display:flex;height:100%;transition:transform .7s cubic-bezier(.2,.9,.3,1);}
+.hero-slide{
+  min-width:100%;height:100%;position:relative;
+  display:flex;align-items:center;
+  background-size:cover;background-position:center;
+}
+.hero-slide::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,21,38,.92) 15%,rgba(11,21,38,.55) 55%,rgba(11,21,38,.25));}
+.hero-slide.align-right::before{background:linear-gradient(260deg,rgba(11,21,38,.92) 15%,rgba(11,21,38,.55) 55%,rgba(11,21,38,.25));}
+
+.hero-slide-content{position:relative;z-index:2;max-width:640px;width:100%;padding:0 24px;}
+.hero-slide-content.pos-left{margin-left:max(24px, calc((100% - var(--maxw)) / 2));margin-right:auto;}
+.hero-slide-content.pos-right{margin-right:max(24px, calc((100% - var(--maxw)) / 2));margin-left:auto;text-align:right;}
+.hero-slide-content.pos-right .eyebrow{flex-direction:row-reverse;}
+.hero-slide-content.pos-right p{margin-left:auto;margin-right:0;}
+.hero-slide-content.pos-right .hero-cta-row{justify-content:flex-end;}
+
+.hero-slide-content .eyebrow{color:var(--orange-400);}
+.hero-slide-content h1{color:var(--white);font-size:clamp(32px,5.4vw,58px);text-transform:uppercase;}
+.hero-slide-content p{color:#C7CFE0;margin-top:16px;font-size:17px;max-width:480px;}
+.hero-cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.hero-slide.s1{background-image:linear-gradient(120deg,#101E38,#182C4E);}
+.hero-slide.s2{background-image:linear-gradient(120deg,#182C4E,#233B69);}
+.hero-slide.s3{background-image:linear-gradient(120deg,#0B1526,#182C4E);}
+
+.hero-art{position:absolute;right:4%;bottom:0;width:46%;max-width:560px;z-index:1;opacity:.95;}
+
+@media(max-width:640px){
+  /* Alternating alignment needs room to breathe; on small screens
+     keep every slide left-aligned so paragraphs stay easy to read. */
+  .hero-slide-content.pos-right{margin-left:max(24px, calc((100% - var(--maxw)) / 2));margin-right:auto;text-align:left;}
+  .hero-slide-content.pos-right .eyebrow{flex-direction:row;}
+  .hero-slide-content.pos-right p{margin-left:0;margin-right:auto;}
+  .hero-slide-content.pos-right .hero-cta-row{justify-content:flex-start;}
+  .hero-slide.align-right::before{background:linear-gradient(100deg,rgba(11,21,38,.92) 15%,rgba(11,21,38,.55) 55%,rgba(11,21,38,.25));}
+}
+
+.hero-controls{position:absolute;bottom:26px;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:center;gap:18px;}
+.hero-arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;}
+.hero-dots{display:flex;gap:8px;}
+.hero-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.35);padding:0;}
+.hero-dots button.active{background:var(--orange-500);width:24px;border-radius:6px;}
+
+/* ===== Quick search bar over hero ===== */
+.quick-search{
+  position:relative;z-index:5;max-width:var(--maxw);margin:-42px auto 0;padding:0 24px;
+}
+.quick-search-inner{
+  background:var(--white);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);
+  padding:22px;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end;
+}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-400);font-family:var(--font-display);}
+.field select,.field input{
+  border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--ink-900);background:var(--cream-50);
+}
+.field select:focus,.field input:focus{border-color:var(--orange-500);}
+
+/* ===== Stat dial strip ===== */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:60px 0 20px;}
+.stat-dial{text-align:center;}
+.stat-dial .roundel{width:104px;height:104px;margin:0 auto 14px;background:var(--navy-900);color:var(--white);}
+.stat-dial .roundel strong{font-family:var(--font-display);font-size:26px;}
+.stat-dial span{display:block;font-size:13px;color:var(--ink-600);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+
+/* ===== Inventory Cards ===== */
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.car-card{
+  background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:.3s;border:1px solid var(--line);
+}
+.car-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.car-link{display:block;}
+.car-link h3{transition:color .2s;}
+.car-card:hover .car-link h3{color:var(--orange-600);}
+.car-thumb{
+  height:190px;position:relative;
+  background:linear-gradient(135deg,var(--navy-800),var(--navy-700));
+  display:flex;align-items:center;justify-content:center;
+}
+.car-thumb svg{width:78%;}
+.car-badge{position:absolute;top:12px;left:12px;background:var(--orange-500);color:#fff;font-family:var(--font-display);font-size:11px;letter-spacing:1px;padding:6px 12px;border-radius:999px;text-transform:uppercase;}
+.car-fuel-badge{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);color:var(--navy-900);font-size:11px;padding:6px 10px;border-radius:999px;font-family:var(--font-display);letter-spacing:.5px;}
+.car-body{padding:20px;}
+.car-body h3{font-size:19px;text-transform:none;}
+.car-meta{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0;font-size:12.5px;color:var(--ink-600);}
+.car-meta span{display:flex;align-items:center;gap:5px;}
+.car-price-row{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);}
+.car-price strong{font-family:var(--font-display);font-size:21px;color:var(--navy-900);}
+.car-price span{display:block;font-size:11px;color:var(--ink-400);text-transform:uppercase;}
+
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+.filter-chip{
+  padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);
+  font-size:13px;font-family:var(--font-display);letter-spacing:.5px;text-transform:uppercase;color:var(--ink-600);
+}
+.filter-chip.active,.filter-chip:hover{background:var(--navy-900);color:#fff;border-color:var(--navy-900);}
+
+/* ===== Service tiles (sell/exchange/testdrive/finance/insurance/warranty) ===== */
+.tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.tile{
+  background:var(--white);border-radius:var(--radius-md);padding:32px 26px;border:1px solid var(--line);
+  transition:.25s;position:relative;overflow:hidden;
+}
+.tile:hover{border-color:var(--orange-400);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.tile-icon{width:56px;height:56px;border-radius:16px;background:var(--navy-900);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.tile h3{font-size:19px;text-transform:none;margin-bottom:10px;}
+.tile p{font-size:14.5px;}
+.tile a.tile-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--orange-600);font-family:var(--font-display);font-size:13px;letter-spacing:.5px;text-transform:uppercase;}
+
+/* ===== EMI Calculator ===== */
+.emi-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);}
+.emi-form{padding:44px;}
+.emi-slider-group{margin-bottom:26px;}
+.emi-slider-label{display:flex;justify-content:space-between;font-family:var(--font-display);font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-600);margin-bottom:10px;}
+.emi-slider-label b{color:var(--navy-900);font-size:15px;}
+input[type=range]{width:100%;accent-color:var(--orange-500);height:6px;}
+.emi-result{background:var(--navy-950);color:#fff;padding:44px;display:flex;flex-direction:column;justify-content:center;}
+.emi-result .roundel{width:150px;height:150px;background:var(--orange-500);margin:0 auto 24px;flex-direction:column;}
+.emi-result .roundel strong{font-family:var(--font-display);font-size:15px;}
+.emi-result .roundel small{font-size:24px;font-family:var(--font-display);}
+.emi-breakdown{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;}
+.emi-breakdown b{font-family:var(--font-display);font-size:16px;color:var(--orange-400);}
+
+/* ===== Testimonials ===== */
+.testi-viewport{overflow:hidden;}
+.testi-track{display:flex;transition:transform .6s ease;}
+.testi-card{min-width:100%;display:flex;gap:32px;align-items:center;padding:10px;}
+.testi-photo{width:150px;height:150px;flex:0 0 auto;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);border:3px solid var(--orange-400);}
+.testi-photo img{width:150px;height:150px;object-fit:cover;display:block;}
+.testi-stars{color:var(--orange-500);margin-bottom:12px;font-size:15px;letter-spacing:2px;}
+.testi-quote{font-size:18px;color:var(--navy-900);font-style:italic;max-width:640px;}
+.testi-name{margin-top:16px;font-family:var(--font-display);text-transform:uppercase;font-size:14px;letter-spacing:.5px;color:var(--navy-900);}
+.testi-name span{display:block;color:var(--ink-400);font-family:var(--font-body);font-size:12.5px;text-transform:none;font-style:normal;margin-top:2px;}
+
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.review-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-md);padding:26px;}
+
+/* Review carousel (Customer Reviews) */
+.review-viewport{overflow:hidden;max-width:760px;margin:0 auto;}
+.review-track{display:flex;transition:transform .6s ease;}
+.review-slide{min-width:100%;padding:6px;}
+.review-slide-inner{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:40px;text-align:center;box-shadow:var(--shadow-sm);
+}
+.review-slide-inner .testi-stars{justify-content:center;display:flex;}
+.review-slide-inner p{font-size:17px;color:var(--navy-900);font-style:italic;max-width:560px;margin:0 auto;}
+.review-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:26px;}
+.review-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--navy-900);display:flex;align-items:center;justify-content:center;}
+.review-arrow:hover{background:var(--navy-900);color:#fff;border-color:var(--navy-900);}
+.review-dots{display:flex;gap:8px;}
+.review-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);padding:0;}
+.review-dots button.active{background:var(--orange-500);width:24px;border-radius:6px;}
+
+/* ===== Free assessment CTA ===== */
+.assess-banner{
+  background:linear-gradient(115deg,var(--orange-600),var(--orange-500));
+  border-radius:var(--radius-lg);padding:52px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;color:#fff;
+}
+.assess-banner h2{color:#fff;font-size:clamp(24px,3.4vw,34px);text-transform:uppercase;max-width:480px;}
+.assess-banner p{color:rgba(255,255,255,.9);margin-top:10px;max-width:420px;}
+
+/* ===== Forms (contact / general) ===== */
+.form-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:40px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.form-grid .full{grid-column:1/-1;}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.form-group label{font-size:12.5px;font-family:var(--font-display);letter-spacing:.5px;text-transform:uppercase;color:var(--ink-600);}
+.form-group input,.form-group select,.form-group textarea{
+  border:1.5px solid var(--line);border-radius:10px;padding:13px 15px;font-size:14.5px;background:var(--cream-50);color:var(--ink-900);
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange-500);}
+.form-note{margin-top:14px;font-size:13px;color:var(--success);opacity:0;transition:.3s;}
+.form-note.show{opacity:1;}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.contact-info-card{background:var(--navy-950);color:#fff;border-radius:var(--radius-lg);padding:40px;}
+.contact-info-card h3{color:#fff;font-size:20px;margin-bottom:20px;}
+.contact-line{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+.contact-line .ic{width:40px;height:40px;border-radius:12px;background:rgba(232,131,78,.16);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.contact-line p{color:#C7CFE0;font-size:14px;}
+.map-frame{border-radius:var(--radius-md);overflow:hidden;margin-top:24px;border:1px solid rgba(255,255,255,.12);}
+.map-frame iframe{width:100%;height:220px;border:0;display:block;filter:grayscale(.2);}
+
+/* ===== Offers ===== */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.offer-card{border-radius:var(--radius-md);overflow:hidden;background:var(--white);border:1px solid var(--line);}
+.offer-head{background:var(--navy-950);color:#fff;padding:26px;position:relative;}
+.offer-head .tag{position:absolute;top:16px;right:16px;background:var(--orange-500);font-size:11px;padding:5px 12px;border-radius:999px;text-transform:uppercase;font-family:var(--font-display);}
+.offer-head h3{color:#fff;font-size:22px;}
+.offer-body{padding:22px 26px;}
+.offer-body ul li{display:flex;gap:8px;font-size:14px;color:var(--ink-600);margin-bottom:10px;}
+.offer-body ul li::before{content:'✓';color:var(--success);font-weight:700;}
+
+/* ===== About page ===== */
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.value-card{text-align:center;padding:26px 16px;}
+.value-card .roundel{width:70px;height:70px;background:var(--cream-100);margin:0 auto 14px;}
+.timeline{border-left:2px solid var(--line);margin-left:12px;}
+.timeline-item{position:relative;padding:0 0 36px 28px;}
+.timeline-item::before{content:'';position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--orange-500);border:3px solid var(--cream-50);}
+.timeline-item h4{font-size:16px;}
+.timeline-item span{font-family:var(--font-display);font-size:12px;color:var(--orange-600);text-transform:uppercase;letter-spacing:1px;}
+
+/* ===== Reveal animation =====
+   Content is visible by default (no-JS / JS-failure safe).
+   JS only opts individual elements INTO the hidden-then-fade-in
+   treatment by adding .pre; if JS never runs, nothing is hidden. */
+.reveal{opacity:1;transform:none;}
+.reveal.pre{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.pre.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  .reveal.pre{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ===== Responsive ===== */
+@media(max-width:1080px){
+  .inv-grid,.tile-grid,.review-grid,.offer-grid,.value-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-strip{grid-template-columns:repeat(2,1fr);}
+  .quick-search-inner{grid-template-columns:repeat(2,1fr);}
+  .emi-wrap,.contact-grid{grid-template-columns:1fr;}
+  .hero-art{display:none;}
+}
+@media(max-width:640px){
+  .inv-grid,.tile-grid,.review-grid,.offer-grid,.value-grid,.form-grid{grid-template-columns:1fr;}
+  .quick-search-inner{grid-template-columns:1fr;}
+  .assess-banner{padding:32px;flex-direction:column;text-align:center;}
+  .testi-card{flex-direction:column;text-align:center;}
+  .emi-form,.emi-result,.form-card,.contact-info-card{padding:26px;}
+  .hero-cta-row{flex-direction:column;align-items:stretch;}
+}
+
+
+/* =========================================================
+   TOP CAR BRANDS
+   ========================================================= */
+
+.brand-section {
+  padding: 55px 0 60px;
+  background: #fff;
+  overflow: hidden;
+}
+
+
+/* Heading */
+
+.brand-section-head {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.brand-section-head .eyebrow {
+  margin-bottom: 7px;
+}
+
+.brand-section-head h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.15;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #20242a;
+}
+
+
+/* Orange decorative line */
+
+.brand-title-line {
+  display: block;
+  width: 48px;
+  height: 6px;
+  margin: 18px auto 0;
+  border-radius: 4px;
+  background: #E8834E;
+  transform: skewX(-25deg);
+}
+
+
+/* Marquee viewport */
+
+.brand-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* Fade edges */
+
+.brand-marquee::before,
+.brand-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.brand-marquee::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #fff,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.brand-marquee::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #fff,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+
+/* Track */
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: brandMarquee 32s linear infinite;
+}
+
+
+/* Individual brand */
+
+.brand-item {
+  width: 170px;
+  height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 15px 25px;
+
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
+}
+
+
+/* Logo */
+
+.brand-item img {
+  display: block;
+
+  max-width: 120px;
+  max-height: 75px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: grayscale(100%);
+  opacity: .72;
+
+  transition:
+    filter .3s ease,
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+
+/* Hover */
+
+.brand-item:hover {
+  transform: translateY(-4px);
+}
+
+.brand-item:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+/* Continuous animation */
+
+@keyframes brandMarquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* Pause on hover */
+
+.brand-marquee:hover .brand-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .brand-section {
+    padding: 42px 0 45px;
+  }
+
+  .brand-section-head {
+    margin-bottom: 25px;
+  }
+
+  .brand-section-head h2 {
+    font-size: 28px;
+  }
+
+  .brand-item {
+    width: 125px;
+    height: 85px;
+    padding: 10px 15px;
+  }
+
+  .brand-item img {
+    max-width: 90px;
+    max-height: 55px;
+  }
+
+  .brand-marquee::before,
+  .brand-marquee::after {
+    width: 35px;
+  }
+
+  .brand-track {
+    animation-duration: 25s;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .brand-track {
+    animation: none;
+  }
+
+}
+
+
+/* =========================================================
+   OUR TEAM
+   ========================================================= */
+
+.team-section {
+  padding: 70px 0 80px;
+  background: #f3f4f6;
+}
+
+
+/* ---------------------------------------------------------
+   Heading
+   --------------------------------------------------------- */
+
+.team-section-head {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.team-section-head h2 {
+  margin: 0;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.15;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #20242a;
+}
+
+.team-title-line {
+  display: block;
+  width: 48px;
+  height: 6px;
+  margin: 18px auto 0;
+  border-radius: 4px;
+  background: #E8834E;
+  transform: skewX(-25deg);
+}
+
+
+/* ---------------------------------------------------------
+   Team Grid
+   --------------------------------------------------------- */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   Card
+   --------------------------------------------------------- */
+
+.team-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Image
+
+   The uploaded image contains 3 people side-by-side.
+   We use the same image for each card and move the
+   background position to show each individual.
+   --------------------------------------------------------- */
+
+.team-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+
+  overflow: hidden;
+
+  background-image: url("../assets/teams/team-new.jpg");
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+
+  margin: 0;
+  padding: 0;
+
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* First person */
+
+.team-image-1 {
+  background-position: 0% center;
+}
+
+
+/* Second person */
+
+.team-image-2 {
+  background-position: 50% center;
+}
+
+
+/* Third person */
+
+.team-image-3 {
+  background-position: 100% center;
+}
+
+
+/* ---------------------------------------------------------
+   Hover Zoom
+   --------------------------------------------------------- */
+
+.team-card:hover .team-image {
+  transform: scale(1.08);
+}
+
+
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+
+.team-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 28px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, .78) 0%,
+      rgba(0, 0, 0, .35) 35%,
+      rgba(0, 0, 0, 0) 65%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity .35s ease;
+}
+
+
+/* Show overlay */
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Content
+   --------------------------------------------------------- */
+
+.team-content {
+  width: 100%;
+
+  transform: translateY(20px);
+
+  transition:
+    transform .4s ease;
+}
+
+.team-card:hover .team-content {
+  transform: translateY(0);
+}
+
+
+.team-content h3 {
+  margin: 0 0 15px;
+
+  color: #fff;
+
+  font-size: 21px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+
+/* ---------------------------------------------------------
+   WhatsApp CTA
+   --------------------------------------------------------- */
+
+.team-connect {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px 17px;
+
+  border-radius: 5px;
+
+  background: #25D366;
+
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.team-connect:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+
+/* WhatsApp icon */
+
+.whatsapp-icon {
+  font-size: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   Name below image
+   --------------------------------------------------------- */
+
+.team-name-mobile {
+  display: none;
+
+  padding: 17px 10px 20px;
+
+  text-align: center;
+
+  background: #fff;
+}
+
+.team-name-mobile h3 {
+  margin: 0;
+
+  color: #30343a;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .team-grid {
+    gap: 18px;
+  }
+
+  .team-overlay {
+    padding: 20px;
+  }
+
+  .team-content h3 {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .team-section {
+    padding: 50px 0 60px;
+  }
+
+  .team-section-head {
+    margin-bottom: 30px;
+  }
+
+  .team-section-head h2 {
+    font-size: 28px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+
+    max-width: 380px;
+  }
+
+  .team-image {
+    aspect-ratio: 1 / 1;
+  }
+
+
+  /*
+   * On mobile there is no reliable hover.
+   * Keep the image clean and show the name + CTA below it.
+   */
+
+  .team-overlay {
+    position: relative;
+    inset: auto;
+
+    opacity: 1;
+
+    padding: 0;
+
+    background: transparent;
+
+    display: block;
+
+    transform: none;
+  }
+
+  .team-content {
+    display: none;
+  }
+
+  .team-name-mobile {
+    display: block;
+  }
+
+  .team-card:hover .team-image {
+    transform: none;
+  }
+
+  .team-card:hover .team-content {
+    transform: none;
+  }
+
+}
+
+
+
+
+/* =========================================================
+   HAPPY CUSTOMERS
+   ========================================================= */
+
+.customers-section {
+    padding: 70px 0 55px;
+    background: #232629;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.customers-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.customers-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(30px, 3vw, 44px);
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+
+
+/* Orange underline */
+
+.customers-heading .section-title-line {
+    display: block;
+
+    width: 48px;
+    height: 6px;
+
+    margin: 18px auto 0;
+
+    border-radius: 4px;
+
+    background: #e87522;
+
+    transform: skewX(-25deg);
+}
+
+
+/* =========================================================
+   CAROUSEL
+   ========================================================= */
+
+.customers-carousel {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    max-width: 1230px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   VIEWPORT
+   ========================================================= */
+
+.customers-viewport {
+    width: 100%;
+
+    overflow: hidden;
+
+    margin: 0 55px;
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.customers-track {
+    display: flex;
+
+    transition:
+        transform .6s cubic-bezier(.4, 0, .2, 1);
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   SLIDE
+   ========================================================= */
+
+.customer-slide {
+    flex: 0 0 25%;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.customer-image {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1.55 / 1;
+
+    overflow: hidden;
+
+    background: #1c1f21;
+}
+
+
+.customer-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease;
+}
+
+
+/* Image hover */
+
+.customer-slide:hover .customer-image img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.customer-arrow {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #aeb4ba;
+
+    font-size: 38px;
+    font-weight: 300;
+
+    line-height: 42px;
+
+    cursor: pointer;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.customer-arrow:hover {
+    color: #ffffff;
+
+    transform:
+        translateY(-50%)
+        scale(1.1);
+}
+
+
+.customer-prev {
+    left: 0;
+}
+
+
+.customer-next {
+    right: 0;
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.customers-pagination {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 38px;
+}
+
+
+.customer-dot {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #444a4f;
+
+    cursor: pointer;
+
+    transition:
+        width .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.customer-dot:hover {
+    background: #777e84;
+}
+
+
+.customer-dot.active {
+    width: 8px;
+    height: 8px;
+
+    background: #e87522;
+
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .customer-slide {
+        flex: 0 0 33.333%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .customers-section {
+        padding: 50px 0 45px;
+    }
+
+
+    .customers-heading {
+        margin-bottom: 25px;
+    }
+
+
+    .customers-heading h2 {
+        font-size: 27px;
+    }
+
+
+    .customers-viewport {
+        margin: 0 38px;
+    }
+
+
+    .customer-slide {
+        flex: 0 0 50%;
+        padding: 0 5px;
+    }
+
+
+    .customer-arrow {
+        width: 32px;
+        height: 32px;
+
+        font-size: 28px;
+
+        line-height: 32px;
+    }
+
+
+    .customers-pagination {
+        margin-top: 25px;
+        gap: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .customers-heading h2 {
+        font-size: 23px;
+    }
+
+
+    .customers-viewport {
+        margin: 0 32px;
+    }
+
+
+    .customer-slide {
+        flex: 0 0 100%;
+        padding: 0;
+    }
+
+
+    .customer-image {
+        aspect-ratio: 1.5 / 1;
+    }
+
+}
